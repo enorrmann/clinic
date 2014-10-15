@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ar_com_norrmann_clinic_model_Paciente" items="${pacientes}" z="xi0m2E1pNTEco8Rc1qOT2wX+xew=">
+        <table:table data="${pacientes}" id="l_ar_com_norrmann_clinic_model_Paciente" path="/pacientes" z="z4C57VSUTQOY1BMHvJc8tx53GYA=">
+            <table:column id="c_ar_com_norrmann_clinic_model_Paciente_apellido" property="apellido" z="fzxcg4t7qUrbqtPOdBdewjMliiA="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Paciente_nombres" property="nombres" z="tUg1GGFTRKsfDSfpcRi1VMpt/qU="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Paciente_documento" property="documento" z="2KUt1ri7EZ6KXuY7X6fJP/YnM10="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Paciente_telefonos" property="telefonos" z="E1pBjvjF6AxUhExh/OCt40WOW94="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Paciente_domicilio" property="domicilio" z="5mKYX/P+7H7IuKVEjV5WKb1+ie8="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Paciente_sexo" property="sexo" z="g1phXHTOs93U2wVcZR5SBQ7sNpM="/>
+        </table:table>
+    </page:list>
+</div>

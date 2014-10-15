@@ -1,0 +1,28 @@
+project --topLevelPackage ar.com.norrmann.clinic 
+jpa setup --database MYSQL --provider HIBERNATE --databaseName clinic --userName root --password root
+entity jpa --class ar.com.norrmann.clinic.model.Profesional
+field string --fieldName apellido
+field string --fieldName nombres
+field string --fieldName tratamiento
+entity jpa --class ~.model.Paciente
+field string --fieldName apellido
+field string --fieldName nombres
+field string --fieldName documento
+field string --fieldName telefonos
+field string --fieldName domicilio
+field string --fieldName sexo
+field string --fieldName email
+field string --fieldName observaciones
+entity jpa --class ~.model.Consultorio
+field string --fieldName nombre
+field string --fieldName domicilio
+field string --fieldName telefonos
+entity jpa --class ~.model.Dia
+field string --fieldName nombre
+entity jpa --class ~.model.HorarioDisponible
+field reference --fieldName consultorio --type ~.model.Consultorio
+field reference --fieldName profesional --type ~.model.Profesional
+field reference --fieldName dia --type ~.model.Dia
+field string --fieldName hora
+web mvc setup
+web mvc all --package ar.com.norrmann.clinic.web

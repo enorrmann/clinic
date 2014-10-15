@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ar_com_norrmann_clinic_model_HorarioDisponible" object="${horariodisponible}" path="/horariodisponibles" z="XzZSbczVDJuZ7lh2M3o2HXhtYIo=">
+        <field:display field="consultorio" id="s_ar_com_norrmann_clinic_model_HorarioDisponible_consultorio" object="${horariodisponible}" z="5y0g57bGoEYi2tp0D46e/HieY/E="/>
+        <field:display field="profesional" id="s_ar_com_norrmann_clinic_model_HorarioDisponible_profesional" object="${horariodisponible}" z="GVynRC2aIcHQfJBIbWj7TPfV228="/>
+        <field:display field="dia" id="s_ar_com_norrmann_clinic_model_HorarioDisponible_dia" object="${horariodisponible}" z="6gWdT8nynYLA6x2rxchmOTrOoiE="/>
+        <field:display field="hora" id="s_ar_com_norrmann_clinic_model_HorarioDisponible_hora" object="${horariodisponible}" z="gSMddSVOJct2eGivz6sqnYsUdQc="/>
+    </page:show>
+</div>

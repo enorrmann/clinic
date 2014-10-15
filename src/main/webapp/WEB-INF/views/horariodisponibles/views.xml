@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="horariodisponibles/list">
+        <put-attribute name="body" value="/WEB-INF/views/horariodisponibles/custom/list.jspx"/>
+    </definition>
+<definition extends="default" name="horariodisponibles/show">
+        <put-attribute name="body" value="/WEB-INF/views/horariodisponibles/show.jspx"/>
+    </definition>
+<definition extends="default" name="horariodisponibles/create">
+        <put-attribute name="body" value="/WEB-INF/views/horariodisponibles/custom/create.jspx"/>
+    </definition>
+<definition extends="default" name="horariodisponibles/update">
+        <put-attribute name="body" value="/WEB-INF/views/horariodisponibles/update.jspx"/>
+    </definition>
+<definition extends="default" name="horariodisponibles/findHorarioDisponiblesByConsultorioAndProfesional">
+        <put-attribute name="body" value="/WEB-INF/views/horariodisponibles/findHorarioDisponiblesByConsultorioAndProfesional.jspx"/>
+    </definition>
+</tiles-definitions>

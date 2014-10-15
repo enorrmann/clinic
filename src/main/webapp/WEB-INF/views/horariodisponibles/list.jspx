@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ar_com_norrmann_clinic_model_HorarioDisponible" items="${horariodisponibles}" z="qvFk7UHt958z2edLgYiFtqq8rkM=">
+        <table:table data="${horariodisponibles}" id="l_ar_com_norrmann_clinic_model_HorarioDisponible" path="/horariodisponibles" z="cy82eZx729RZ3uGRSuLUBEM4Lg0=">
+            <table:column id="c_ar_com_norrmann_clinic_model_HorarioDisponible_consultorio" property="consultorio" z="h39g8xo50W9dsZS7Liu7rEWzDTQ="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_HorarioDisponible_profesional" property="profesional" z="hqBoZUtb0gIkuFhNtoV7SIj0Kbo="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_HorarioDisponible_dia" property="dia" z="PNKPfvIGAc98t3PkmfJLIcUUxUk="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_HorarioDisponible_hora" property="hora" z="Sh4L78g2gd7X4Spj6B5sMj9Blug="/>
+        </table:table>
+    </page:list>
+</div>

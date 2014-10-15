@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ar_com_norrmann_clinic_model_Paciente" modelAttribute="paciente" path="/pacientes" versionField="Version" z="PRoRpEO9S9pl3b4c9IEu9d8yTJM=">
+        <field:input field="apellido" id="c_ar_com_norrmann_clinic_model_Paciente_apellido" z="q+gsV1uCb20jfG2+29bhGJDeLgo="/>
+        <field:input field="nombres" id="c_ar_com_norrmann_clinic_model_Paciente_nombres" z="ntEDleGHoss0dVbxPvbTLBQqFbw="/>
+        <field:input field="documento" id="c_ar_com_norrmann_clinic_model_Paciente_documento" z="wDsFAFeHT/9IHM02DVrqqVeGpyI="/>
+        <field:input field="telefonos" id="c_ar_com_norrmann_clinic_model_Paciente_telefonos" z="qK27Xn99q+jjqRcUsXt4MUTUQPA="/>
+        <field:input field="domicilio" id="c_ar_com_norrmann_clinic_model_Paciente_domicilio" z="60MP0gsjzwtdj3yH2Y+kTmadNMk="/>
+        <field:input field="sexo" id="c_ar_com_norrmann_clinic_model_Paciente_sexo" z="W0iCgPl6O8c1Oee/3zTD8szawDI="/>
+        <field:input field="email" id="c_ar_com_norrmann_clinic_model_Paciente_email" validationMessageCode="field_invalid_email" z="DdVU1M37Bu3+GoX6/GfGZSrETm8="/>
+        <field:input field="observaciones" id="c_ar_com_norrmann_clinic_model_Paciente_observaciones" z="KRLJB0GesbMvXyw/LqHk/XXeWDU="/>
+    </form:update>
+</div>

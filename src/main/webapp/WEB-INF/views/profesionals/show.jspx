@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ar_com_norrmann_clinic_model_Profesional" object="${profesional}" path="/profesionals" z="x+rmCxdbeqj3Lu7KEeKbKuRTPZw=">
+        <field:display field="apellido" id="s_ar_com_norrmann_clinic_model_Profesional_apellido" object="${profesional}" z="wFD1KZ34goqhUeZMLnElbUauqTQ="/>
+        <field:display field="nombres" id="s_ar_com_norrmann_clinic_model_Profesional_nombres" object="${profesional}" z="XAKOJBERrjYWRBZb19Nqrt0be2A="/>
+        <field:display field="tratamiento" id="s_ar_com_norrmann_clinic_model_Profesional_tratamiento" object="${profesional}" z="PGGfmQ19dLq2zNLVAcYnCGVmhAM="/>
+    </page:show>
+</div>

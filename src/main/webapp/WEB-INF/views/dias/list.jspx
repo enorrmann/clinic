@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ar_com_norrmann_clinic_model_Dia" items="${dias}" z="8T/YwBW4S9LhL4j0+gGHFl7OSmI=">
+        <table:table data="${dias}" id="l_ar_com_norrmann_clinic_model_Dia" path="/dias" z="IHi1WXYA5eHPhD2j8Er9b+gpgEQ=">
+            <table:column id="c_ar_com_norrmann_clinic_model_Dia_nombre" property="nombre" z="O+Br+hmYZUN5/+e4aWHIuR//pmo="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByConsultorioAndProfesional" id="ff_ar_com_norrmann_clinic_model_HorarioDisponible" path="/horariodisponibles" z="K2CiAw7hK6MDh3GKs0zDPnLz/uI=">
+        <field:select disableFormBinding="true" field="consultorio" id="f_ar_com_norrmann_clinic_model_HorarioDisponible_consultorio" itemValue="id" items="${consultorios}" path="/consultorios" required="true" z="4jSWMkDZDrU7RoElm+UYDdX/QCg="/>
+        <field:select disableFormBinding="true" field="profesional" id="f_ar_com_norrmann_clinic_model_HorarioDisponible_profesional" itemValue="id" items="${profesionals}" path="/profesionals" required="true" z="G3qFPHzBDwBo/PhFIay8bIWkq6w="/>
+    </form:find>
+</div>

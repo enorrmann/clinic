@@ -1,0 +1,62 @@
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-07 14:37:35
+project --topLevelPackage ar.com.norrmann.clinic 
+jpa setup --database MYSQL --provider HIBERNATE --databaseName clinic --userName root --password root
+entity jpa --class ar.com.norrmann.clinic.model.Profesional
+field string --fieldName apellido
+field string --fieldName nombres
+field string --fieldName tratamiento
+entity jpa --class ~.model.Paciente
+field string --fieldName apellido
+field string --fieldName nombres
+field string --fieldName documento
+field string --fieldName telefonos
+field string --fieldName domicilio
+field string --fieldName sexo
+field string --fieldName email
+field string --fieldName observaciones
+entity jpa --class ~.model.Consultorio
+field string --fieldName nombre
+field string --fieldName domicilio
+field string --fieldName telefonos
+entity jpa --class ~.model.Dia
+field string --fieldName nombre
+entity jpa --class ~.model.HorarioDisponible
+field reference --fieldName consultorio --type ~.model.Consultorio
+field reference --fieldName profesional --type ~.model.Profesional
+field reference --fieldName dia --type ~.model.Dia
+field string --fieldName hora
+web mvc setup
+web mvc all --package ar.com.norrmann.clinic.web
+// script --file backup.roo
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 14:38:39
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-08 14:07:57
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-09 09:04:32
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-14 10:31:27
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-14 11:12:55
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-14 11:25:14
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-14 11:25:20
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-14 11:26:49
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-14 11:26:55
+hint equals
+help equals
+equals --class ~.model.Profesional
+equals --class ~.model.Consultorio
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-14 11:34:46
+equals --class ~.model.HorarioDisponible
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-14 11:51:39
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-14 11:52:39
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-14 12:28:07
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-14 12:31:26
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-14 12:31:35
+equals --class ~.model.Profesional
+finder list --class ~.model.HorarioDisponible
+finder add findHorarioDisponiblesByConsultorioAndProfesional
+web mvc finder all
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-14 15:06:05
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-15 10:04:16

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:form action="process" commandName="parametros">
+        <field:select field="consultorioSeleccionado" id="selectConsultorio" itemValue="id" items="${consultorioAll}" label="Consultorio" path="/consultorios"/>
+        <field:select field="profesionalSeleccionado" id="selectProfesional" itemValue="id" items="${profesionalAll}" label="Profesional" path="/profesionals"/>
+        <input type="submit"/>
+    </form:form>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_horariodisponible" z="OwsTDUmW2D0fRBzSqVnyWOeXhp8=">
+            <menu:item id="i_horariodisponible_new" messageCode="global_menu_new" url="/horariodisponibles?form" z="5i8G3+pTwy8onwobSTF+EQVmLV8="/>
+            <menu:item id="i_horariodisponible_list" messageCode="global_menu_list" url="/horariodisponibles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="gffvUhLLJj6ROpYDE0ROlFEImkc="/>
+            <menu:item id="fi_horariodisponible_consultorioandprofesional" messageCode="global_menu_find" render="false" url="/horariodisponibles?find=ByConsultorioAndProfesional&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+        </menu:category>
+        <menu:category id="c_profesional" z="yGCNq5udwghHnntmzXY8bA7yqXM=">
+            <menu:item id="i_profesional_new" messageCode="global_menu_new" url="/profesionals?form" z="oagHudO5h72TcMFjnashTsvUjEk="/>
+            <menu:item id="i_profesional_list" messageCode="global_menu_list" url="/profesionals?page=1&amp;size=${empty param.size ? 10 : param.size}" z="lGCnaWA8lXilUMOYP+zu0iIfQ54="/>
+        </menu:category>
+        <menu:category id="c_dia" z="FGnxo7sF4H5aBwCVPfE+MbMq5mw=">
+            <menu:item id="i_dia_new" messageCode="global_menu_new" url="/dias?form" z="A9RnQ6wTC8Umqq1287QZWfAUa8I="/>
+            <menu:item id="i_dia_list" messageCode="global_menu_list" url="/dias?page=1&amp;size=${empty param.size ? 10 : param.size}" z="n04s2Tkiy6vWjr1WQI1WgvfdrZY="/>
+        </menu:category>
+        <menu:category id="c_paciente" z="TslmWGcTtA97n65XPBQMEWP16hU=">
+            <menu:item id="i_paciente_new" messageCode="global_menu_new" url="/pacientes?form" z="uZzONXzfFOa7E7Q7oFwKkc2tEQY="/>
+            <menu:item id="i_paciente_list" messageCode="global_menu_list" url="/pacientes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="7yz4X25eDmTh3G5YlRxMy4GkeUw="/>
+        </menu:category>
+        <menu:category id="c_consultorio" z="fHIhvtYkMgTXMz9GpGp1flHiPzo=">
+            <menu:item id="i_consultorio_new" messageCode="global_menu_new" url="/consultorios?form" z="SXplUpDoNjRIg/OanMEKNuaTYG8="/>
+            <menu:item id="i_consultorio_list" messageCode="global_menu_list" url="/consultorios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="YR6Im8ReITqwxX6bRdTHr3gDU80="/>
+        </menu:category>
+    </menu:menu>
+</div>

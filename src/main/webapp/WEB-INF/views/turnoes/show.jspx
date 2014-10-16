@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ar_com_norrmann_clinic_model_Turno" object="${turno}" path="/turnoes" z="5VZ8c2XZ/Ag1N4W9ijtdtnmMxv4=">
+        <field:display date="true" dateTimePattern="${turno_fecha_date_format}" field="fecha" id="s_ar_com_norrmann_clinic_model_Turno_fecha" object="${turno}" z="3+NM75JU7IbZhKuz4r12jth9BDw="/>
+        <field:display field="hora" id="s_ar_com_norrmann_clinic_model_Turno_hora" object="${turno}" z="ByFBwF62ZMxLU55nGPJSmAcnMr0="/>
+        <field:display field="profesional" id="s_ar_com_norrmann_clinic_model_Turno_profesional" object="${turno}" z="u/PKgW3PqquM3LJ9XwEMa+q2gyk="/>
+        <field:display field="paciente" id="s_ar_com_norrmann_clinic_model_Turno_paciente" object="${turno}" z="ErT3HEgTOIcMLb6/RwomtV6nRUY="/>
+        <field:display field="consultorio" id="s_ar_com_norrmann_clinic_model_Turno_consultorio" object="${turno}" z="3D1J6abu5Te84dBrlt3yQtiODPo="/>
+    </page:show>
+</div>

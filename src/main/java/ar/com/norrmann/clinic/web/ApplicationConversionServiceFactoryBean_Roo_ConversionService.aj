@@ -7,7 +7,7 @@ import ar.com.norrmann.clinic.model.Consultorio;
 import ar.com.norrmann.clinic.model.Dia;
 import ar.com.norrmann.clinic.model.HorarioDisponible;
 import ar.com.norrmann.clinic.model.Paciente;
-import ar.com.norrmann.clinic.model.Profesional;
+import ar.com.norrmann.clinic.model.Turno;
 import ar.com.norrmann.clinic.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -113,26 +113,26 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<Profesional, String> ApplicationConversionServiceFactoryBean.getProfesionalToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<ar.com.norrmann.clinic.model.Profesional, java.lang.String>() {
-            public String convert(Profesional profesional) {
-                return new StringBuilder().append(profesional.getApellido()).append(' ').append(profesional.getNombres()).append(' ').append(profesional.getTratamiento()).toString();
+    public Converter<Turno, String> ApplicationConversionServiceFactoryBean.getTurnoToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<ar.com.norrmann.clinic.model.Turno, java.lang.String>() {
+            public String convert(Turno turno) {
+                return new StringBuilder().append(turno.getFecha()).append(' ').append(turno.getHora()).toString();
             }
         };
     }
     
-    public Converter<Long, Profesional> ApplicationConversionServiceFactoryBean.getIdToProfesionalConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, ar.com.norrmann.clinic.model.Profesional>() {
-            public ar.com.norrmann.clinic.model.Profesional convert(java.lang.Long id) {
-                return Profesional.findProfesional(id);
+    public Converter<Long, Turno> ApplicationConversionServiceFactoryBean.getIdToTurnoConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, ar.com.norrmann.clinic.model.Turno>() {
+            public ar.com.norrmann.clinic.model.Turno convert(java.lang.Long id) {
+                return Turno.findTurno(id);
             }
         };
     }
     
-    public Converter<String, Profesional> ApplicationConversionServiceFactoryBean.getStringToProfesionalConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, ar.com.norrmann.clinic.model.Profesional>() {
-            public ar.com.norrmann.clinic.model.Profesional convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), Profesional.class);
+    public Converter<String, Turno> ApplicationConversionServiceFactoryBean.getStringToTurnoConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, ar.com.norrmann.clinic.model.Turno>() {
+            public ar.com.norrmann.clinic.model.Turno convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Turno.class);
             }
         };
     }
@@ -150,9 +150,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getPacienteToStringConverter());
         registry.addConverter(getIdToPacienteConverter());
         registry.addConverter(getStringToPacienteConverter());
-        registry.addConverter(getProfesionalToStringConverter());
-        registry.addConverter(getIdToProfesionalConverter());
-        registry.addConverter(getStringToProfesionalConverter());
+        registry.addConverter(getTurnoToStringConverter());
+        registry.addConverter(getIdToTurnoConverter());
+        registry.addConverter(getStringToTurnoConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

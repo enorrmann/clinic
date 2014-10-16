@@ -8,7 +8,6 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooJpaActiveRecord
 @RooEquals
-@RooToString
 @RooSerializable
 public class Profesional {
 
@@ -26,6 +25,9 @@ public class Profesional {
     
     public String getNombreLargo(){
     	return tratamiento+" "+apellido+", "+nombres;
+    }
+    public String toString(){
+    	return getNombreLargo();
     }
 
 }

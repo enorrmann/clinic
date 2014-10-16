@@ -36,6 +36,11 @@ body {
 	display:box;
 }
 
+#myCalendar {
+	overflow:hidden;
+	display:inline;
+}
+
 #menu {
 	background: #eee;
 	position:relative;
@@ -371,3 +376,6 @@ fieldset th {
 	height: 11px;
 	width: 16px;
 }
+
+#myCalendar .dijitCalendarDateTemplate { width: 30px; border: 1px solid #ccc; vertical-align: top }
+#myCalendar .dijitCalendarMonthLabel { font-size: 1.5em }

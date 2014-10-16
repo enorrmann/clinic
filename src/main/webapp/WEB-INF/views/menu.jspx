@@ -7,6 +7,18 @@
         <field:select field="profesionalSeleccionado" id="selectProfesional" itemValue="id" items="${profesionalAll}" label="Profesional" path="/profesionals"/>
         <input type="submit"/>
     </form:form>
+<div>
+    <div id="myCalendar" class="myCalendar">
+<script type="text/javascript">
+Spring.addDecoration(
+		new Spring.ElementDecoration(
+				{elementId : 'myCalendar', widgetType : 'dijit.Calendar'}
+			)
+	);        </script>
+
+</div>
+</div>
+    
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
         <menu:category id="c_horariodisponible" z="OwsTDUmW2D0fRBzSqVnyWOeXhp8=">
             <menu:item id="i_horariodisponible_new" messageCode="global_menu_new" url="/horariodisponibles?form" z="5i8G3+pTwy8onwobSTF+EQVmLV8="/>
@@ -28,6 +40,10 @@
         <menu:category id="c_consultorio" z="fHIhvtYkMgTXMz9GpGp1flHiPzo=">
             <menu:item id="i_consultorio_new" messageCode="global_menu_new" url="/consultorios?form" z="SXplUpDoNjRIg/OanMEKNuaTYG8="/>
             <menu:item id="i_consultorio_list" messageCode="global_menu_list" url="/consultorios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="YR6Im8ReITqwxX6bRdTHr3gDU80="/>
+        </menu:category>
+        <menu:category id="c_turno" z="wKwWXJaWB+CKOGH4wu+IDBXjTG4=">
+            <menu:item id="i_turno_new" messageCode="global_menu_new" url="/turnoes?form" z="dPg3kwO7cYsy7sljZjhZvGP5v0k="/>
+            <menu:item id="i_turno_list" messageCode="global_menu_list" url="/turnoes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dJ5xBzd7nk4RQTxUWoCykEFOZ5A="/>
         </menu:category>
     </menu:menu>
 </div>

@@ -3,13 +3,13 @@
 
 package ar.com.norrmann.clinic.model;
 
-import ar.com.norrmann.clinic.model.Profesional;
+import ar.com.norrmann.clinic.model.Turno;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-privileged aspect Profesional_Roo_ToString {
+privileged aspect Turno_Roo_ToString {
     
-    public String Profesional.toString() {
+    public String Turno.toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
     

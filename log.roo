@@ -60,3 +60,15 @@ web mvc finder all
 exit
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-14 15:06:05
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-15 10:04:16
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-15 14:01:00
+entity jpa --class ~.model.Turno
+field date --fieldName fecha --type java.util.Date
+field string --fieldName hora
+field reference --fieldName profesional --type ~.model.Profesional
+field reference --fieldName paciente --type ~.model.Paciente
+field reference --fieldName consultorio --type ~.model.Consultorio
+web mvc all --package ar.com.norrmann.clinic.web
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-16 08:38:34
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-16 08:57:52
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-16 10:27:15

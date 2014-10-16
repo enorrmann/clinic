@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    
+    <page:list id="pl_ar_com_norrmann_clinic_model_HorarioDisponible" items="${horariodisponibles}" z="qvFk7UHt958z2edLgYiFtqq8rkM=">
+        <table:table
+        	create="false"
+        	update="false"
+        	delete="false"
+        	data="${horariodisponibles}" id="l_ar_com_norrmann_clinic_model_HorarioDisponible" path="/horariodisponibles" z="cy82eZx729RZ3uGRSuLUBEM4Lg0=">
+            <table:column id="c_ar_com_norrmann_clinic_model_HorarioDisponible_dia" property="dia" z="PNKPfvIGAc98t3PkmfJLIcUUxUk="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_HorarioDisponible_hora" property="hora" z="Sh4L78g2gd7X4Spj6B5sMj9Blug="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_HorarioDisponible_consultorio" property="consultorio" z="h39g8xo50W9dsZS7Liu7rEWzDTQ="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_HorarioDisponible_profesional" property="profesional" z="hqBoZUtb0gIkuFhNtoV7SIj0Kbo="/>
+        </table:table>
+    </page:list>
+
+    <page:list id="pl_ar_com_norrmann_clinic_model_Turno" items="${turnoes}" z="vRrTtaZvH/YA54sBwK92SItnYrk=">
+        <table:table data="${turnoes}" id="l_ar_com_norrmann_clinic_model_Turno" path="/turnoes" z="GTWSjJHFQtezRy55kpp+XsHJGDc=">
+            <table:column date="true" dateTimePattern="${turno_fecha_date_format}" id="c_ar_com_norrmann_clinic_model_Turno_fecha" property="fecha" z="zm3P87zgThdA4I1C/wVUuB6pOg8="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Turno_hora" property="hora" z="u4SNDOBfjlK4OM8pV1+k1gGgfMI="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Turno_consultorio" property="consultorio" z="fQ/1oo3KmjteI6ZQlpMyn1QESGw="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Turno_profesional" property="profesional" z="PhH2nZGksMurIwhnNZBhsm+09kQ="/>
+            <table:column id="c_ar_com_norrmann_clinic_model_Turno_paciente" property="paciente" z="0EmM1XUlxuZKKG4yAkeyGLi6EEc="/>
+        </table:table>
+    </page:list>
+
+</div>

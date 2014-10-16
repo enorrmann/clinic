@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord
+@RooJpaActiveRecord(finders = { "findTurnoesByConsultorioAndProfesionalAndFechaEquals" })
 public class Turno {
 
     /**

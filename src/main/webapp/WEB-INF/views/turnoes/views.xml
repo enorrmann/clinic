@@ -8,7 +8,7 @@
         <put-attribute name="body" value="/WEB-INF/views/turnoes/show.jspx"/>
     </definition>
 <definition extends="default" name="turnoes/create">
-        <put-attribute name="body" value="/WEB-INF/views/turnoes/create.jspx"/>
+        <put-attribute name="body" value="/WEB-INF/views/turnoes/custom/create.jspx"/>
     </definition>
 <definition extends="default" name="turnoes/update">
         <put-attribute name="body" value="/WEB-INF/views/turnoes/update.jspx"/>

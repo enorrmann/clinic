@@ -2,6 +2,7 @@ package ar.com.norrmann.clinic.web;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.com.norrmann.clinic.model.Consultorio;
+import ar.com.norrmann.clinic.model.HorarioDisponible;
 import ar.com.norrmann.clinic.model.Profesional;
 
 @RequestMapping("/")
@@ -38,8 +40,18 @@ public class HomeController {
 
 	@RequestMapping(value="/process")
 	public String processForm(@ModelAttribute Parametros params) {
-//		ModelAndView modelAndView = new ModelAndView("index");
-		   return "redirect:/turnoes";
+		calculateDiasAtiende(params);
+		return "redirect:/turnoes";
+	}
+
+	private void calculateDiasAtiende(Parametros params) {
+		parametros.getDiasAtiende().clear();
+		Consultorio consultorio = Consultorio.findConsultorio(parametros.getConsultorioSeleccionado().getId());
+        Profesional profesional = Profesional.findProfesional(parametros.getProfesionalSeleccionado().getId());
+        List<HorarioDisponible> horariosDisponibles = HorarioDisponible.findHorarioDisponiblesByConsultorioAndProfesional(consultorio, profesional).getResultList();
+        for (HorarioDisponible unHorarioDisponible:horariosDisponibles){
+        	params.addDiaAtiende(unHorarioDisponible.getDia().getId());
+        }
 	}
 	
 	@RequestMapping( method=RequestMethod.GET)
@@ -54,6 +66,7 @@ public class HomeController {
 			List<Consultorio> consultorios = Consultorio.findAllConsultorios();
 			parametros.setConsultorioSeleccionado(consultorios.get(0));
 			modelAndView.addObject("consultorioAll", consultorios );
+			calculateDiasAtiende(parametros);
 		}
 	//	modelAndView.addObject("parametros",parametros);
 	return modelAndView;	

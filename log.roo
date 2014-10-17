@@ -85,3 +85,5 @@ finder add findTurnoesByConsultorioAndProfesionalAndFechaEquals
 finder add findTurnoesByConsultorioAndProfesionalAndFecha
 finder list --class ~.model.HorarioDisponible
 finder add findHorarioDisponiblesByConsultorioAndProfesionalAndDia
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-17 15:29:11

@@ -3,17 +3,23 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import ar.com.norrmann.clinic.model.Consultorio;
 import ar.com.norrmann.clinic.model.Dia;
 import ar.com.norrmann.clinic.model.HorarioDisponible;
+import ar.com.norrmann.clinic.model.Paciente;
 import ar.com.norrmann.clinic.model.Profesional;
 import ar.com.norrmann.clinic.model.Turno;
 
@@ -23,7 +29,33 @@ import ar.com.norrmann.clinic.model.Turno;
 @SessionAttributes({ "parametros" })
 public class TurnoController {
 	
-    @RequestMapping(produces = "text/html")
+    @RequestMapping(params = "form", produces = "text/html")
+    public String createForm(Model uiModel,@ModelAttribute Parametros parametros) {
+    	Turno turno = new Turno();
+    	turno.setFecha(parametros.getFecha());
+    	uiModel.addAttribute("pacientes", Paciente.findAllPacientes());
+        uiModel.addAttribute("turno", turno);
+        addDateTimeFormatPatterns(uiModel);
+        return "turnoes/create";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    public String create(@ModelAttribute Parametros parametros, @Valid Turno turno, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        if (bindingResult.hasErrors()) {
+            populateEditForm(uiModel, turno);
+            return "turnoes/create";
+        }
+        uiModel.asMap().clear();
+        Consultorio consultorio = Consultorio.findConsultorio(parametros.getConsultorioSeleccionado().getId());
+        Profesional profesional = Profesional.findProfesional(parametros.getProfesionalSeleccionado().getId());
+        turno.setConsultorio(consultorio);
+        turno.setProfesional(profesional);
+
+        turno.persist();
+        return "redirect:/turnoes/" + encodeUrlPathSegment(turno.getId().toString(), httpServletRequest);
+    }
+    
+	@RequestMapping(produces = "text/html")
     public String list(@ModelAttribute Parametros parametros,@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
     	List<Turno> turnos = null;
     	List<HorarioDisponible> horariosDisponibles = null;

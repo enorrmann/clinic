@@ -22,8 +22,9 @@ Spring.addDecoration(
 					widgetType : 'dijit.Calendar',
 					 widgetAttrs : {
 						 getClassForDate: function (date) {
-					            if (!(date.getDate() % 10)) { return "red"; } // apply special style to all days divisible by 10
-					            console.log('getClassForDate'+date);
+					            if (${parametros.diasAtiende}.indexOf(date.getDay()+1)>=0 ){ 
+					            	return "horario-disponible";
+					            	}
 					        },
 						 value:new Date("${parametros.fechaString}"),
 				            onChange : function(evt) {

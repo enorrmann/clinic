@@ -24,23 +24,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect TurnoController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String TurnoController.create(@Valid Turno turno, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, turno);
-            return "turnoes/create";
-        }
-        uiModel.asMap().clear();
-        turno.persist();
-        return "redirect:/turnoes/" + encodeUrlPathSegment(turno.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", produces = "text/html")
-    public String TurnoController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new Turno());
-        return "turnoes/create";
-    }
-    
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String TurnoController.show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);

@@ -8,7 +8,7 @@ import org.springframework.roo.addon.equals.RooEquals;
 @RooJavaBean
 @RooToString
 @RooEquals
-@RooJpaActiveRecord(finders = { "findHorarioDisponiblesByConsultorioAndProfesional" })
+@RooJpaActiveRecord(finders = { "findHorarioDisponiblesByConsultorioAndProfesional", "findHorarioDisponiblesByConsultorioAndProfesionalAndDia" })
 public class HorarioDisponible {
 
     /**

@@ -5,25 +5,58 @@
     <form:form action="process" commandName="parametros">
         <field:select field="consultorioSeleccionado" id="selectConsultorio" itemValue="id" items="${consultorioAll}" label="Consultorio" path="/consultorios"/>
         <field:select field="profesionalSeleccionado" id="selectProfesional" itemValue="id" items="${profesionalAll}" label="Profesional" path="/profesionals"/>
-        <input type="submit"/>
+
     </form:form>
-<div>
-    <div id="myCalendar" class="myCalendar">
-<script type="text/javascript">
+    <div>
+        <div class="myCalendar" id="myCalendar">
+            <script type="text/javascript">
+function submitParametros(){
+	document.getElementById('parametros').submit();	
+}
+var prevDate = null;
+window.onload=function(){
 Spring.addDecoration(
 		new Spring.ElementDecoration(
-				{elementId : 'myCalendar', widgetType : 'dijit.Calendar'}
+				{
+					elementId : 'myCalendar',
+					widgetType : 'dijit.Calendar',
+					 widgetAttrs : {
+						 getClassForDate: function (date) {
+					            if (!(date.getDate() % 10)) { return "red"; } // apply special style to all days divisible by 10
+					            console.log('getClassForDate'+date);
+					        },
+						 value:new Date("${parametros.fechaString}"),
+				            onChange : function(evt) {
+				            	if (prevDate==null){
+				            		prevDate=evt;
+				            	}
+				            	if (prevDate!=evt){
+				            		var fmt = "M/d/yyyy"
+				            		var fmtDate = dojo.date.locale.format( evt, {selector:"date", datePattern:fmt});
+				            		window.location.href="/clinic/?selectDate="+fmtDate;
+				            	}
+				            }
+					 }
+				}
 			)
-	);        </script>
+	);
+	var cboConsultorio = document.getElementById('_consultorioSeleccionado_id');
+	var cboProfesional = document.getElementById('_profesionalSeleccionado_id');
+	cboConsultorio.onchange=function(){submitParametros()};
+	cboProfesional.onchange=function(){submitParametros()}; 
 
-</div>
-</div>
-    
+	
+	
+}
+</script>
+        </div>
+    </div>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
         <menu:category id="c_horariodisponible" z="OwsTDUmW2D0fRBzSqVnyWOeXhp8=">
             <menu:item id="i_horariodisponible_new" messageCode="global_menu_new" url="/horariodisponibles?form" z="5i8G3+pTwy8onwobSTF+EQVmLV8="/>
             <menu:item id="i_horariodisponible_list" messageCode="global_menu_list" url="/horariodisponibles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="gffvUhLLJj6ROpYDE0ROlFEImkc="/>
             <menu:item id="fi_horariodisponible_consultorioandprofesional" messageCode="global_menu_find" render="false" url="/horariodisponibles?find=ByConsultorioAndProfesional&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            <menu:item id="fi_horariodisponible_consultorioandprofesionalanddia" messageCode="global_menu_find" url="/horariodisponibles?find=ByConsultorioAndProfesionalAndDia&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="5VabSDNxogXTBIKL9HwFo8+vRhk="/>
         </menu:category>
         <menu:category id="c_profesional" z="yGCNq5udwghHnntmzXY8bA7yqXM=">
             <menu:item id="i_profesional_new" messageCode="global_menu_new" url="/profesionals?form" z="oagHudO5h72TcMFjnashTsvUjEk="/>

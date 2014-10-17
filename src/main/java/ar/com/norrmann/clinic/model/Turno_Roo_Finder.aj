@@ -12,6 +12,18 @@ import javax.persistence.TypedQuery;
 
 privileged aspect Turno_Roo_Finder {
     
+    public static Long Turno.countFindTurnoesByConsultorioAndProfesionalAndFecha(Consultorio consultorio, Profesional profesional, Date fecha) {
+        if (consultorio == null) throw new IllegalArgumentException("The consultorio argument is required");
+        if (profesional == null) throw new IllegalArgumentException("The profesional argument is required");
+        if (fecha == null) throw new IllegalArgumentException("The fecha argument is required");
+        EntityManager em = Turno.entityManager();
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM Turno AS o WHERE o.consultorio = :consultorio AND o.profesional = :profesional AND o.fecha = :fecha", Long.class);
+        q.setParameter("consultorio", consultorio);
+        q.setParameter("profesional", profesional);
+        q.setParameter("fecha", fecha);
+        return ((Long) q.getSingleResult());
+    }
+    
     public static Long Turno.countFindTurnoesByConsultorioAndProfesionalAndFechaEquals(Consultorio consultorio, Profesional profesional, Date fecha) {
         if (consultorio == null) throw new IllegalArgumentException("The consultorio argument is required");
         if (profesional == null) throw new IllegalArgumentException("The profesional argument is required");
@@ -22,6 +34,37 @@ privileged aspect Turno_Roo_Finder {
         q.setParameter("profesional", profesional);
         q.setParameter("fecha", fecha);
         return ((Long) q.getSingleResult());
+    }
+    
+    public static TypedQuery<Turno> Turno.findTurnoesByConsultorioAndProfesionalAndFecha(Consultorio consultorio, Profesional profesional, Date fecha) {
+        if (consultorio == null) throw new IllegalArgumentException("The consultorio argument is required");
+        if (profesional == null) throw new IllegalArgumentException("The profesional argument is required");
+        if (fecha == null) throw new IllegalArgumentException("The fecha argument is required");
+        EntityManager em = Turno.entityManager();
+        TypedQuery<Turno> q = em.createQuery("SELECT o FROM Turno AS o WHERE o.consultorio = :consultorio AND o.profesional = :profesional AND o.fecha = :fecha", Turno.class);
+        q.setParameter("consultorio", consultorio);
+        q.setParameter("profesional", profesional);
+        q.setParameter("fecha", fecha);
+        return q;
+    }
+    
+    public static TypedQuery<Turno> Turno.findTurnoesByConsultorioAndProfesionalAndFecha(Consultorio consultorio, Profesional profesional, Date fecha, String sortFieldName, String sortOrder) {
+        if (consultorio == null) throw new IllegalArgumentException("The consultorio argument is required");
+        if (profesional == null) throw new IllegalArgumentException("The profesional argument is required");
+        if (fecha == null) throw new IllegalArgumentException("The fecha argument is required");
+        EntityManager em = Turno.entityManager();
+        String jpaQuery = "SELECT o FROM Turno AS o WHERE o.consultorio = :consultorio AND o.profesional = :profesional AND o.fecha = :fecha";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        TypedQuery<Turno> q = em.createQuery(jpaQuery, Turno.class);
+        q.setParameter("consultorio", consultorio);
+        q.setParameter("profesional", profesional);
+        q.setParameter("fecha", fecha);
+        return q;
     }
     
     public static TypedQuery<Turno> Turno.findTurnoesByConsultorioAndProfesionalAndFechaEquals(Consultorio consultorio, Profesional profesional, Date fecha) {

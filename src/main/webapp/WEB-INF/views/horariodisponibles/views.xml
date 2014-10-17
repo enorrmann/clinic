@@ -16,4 +16,7 @@
 <definition extends="default" name="horariodisponibles/findHorarioDisponiblesByConsultorioAndProfesional">
         <put-attribute name="body" value="/WEB-INF/views/horariodisponibles/findHorarioDisponiblesByConsultorioAndProfesional.jspx"/>
     </definition>
+<definition extends="default" name="horariodisponibles/findHorarioDisponiblesByConsultorioAndProfesionalAndDia">
+        <put-attribute name="body" value="/WEB-INF/views/horariodisponibles/findHorarioDisponiblesByConsultorioAndProfesionalAndDia.jspx"/>
+    </definition>
 </tiles-definitions>

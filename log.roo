@@ -74,3 +74,14 @@ exit
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-16 10:27:15
 finder list --class ~.model.Turno
 finder add findTurnoesByConsultorioAndProfesionalAndFechaEquals
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-16 13:33:08
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-16 13:33:17
+exit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-16 15:04:49
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-17 09:59:20
+finder list --class ~.model.Turno
+finder add findTurnoesByConsultorioAndProfesionalAndFechaEquals
+finder add findTurnoesByConsultorioAndProfesionalAndFecha
+finder list --class ~.model.HorarioDisponible
+finder add findHorarioDisponiblesByConsultorioAndProfesionalAndDia

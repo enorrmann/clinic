@@ -4,6 +4,7 @@
 package ar.com.norrmann.clinic.model;
 
 import ar.com.norrmann.clinic.model.Consultorio;
+import ar.com.norrmann.clinic.model.Dia;
 import ar.com.norrmann.clinic.model.HorarioDisponible;
 import ar.com.norrmann.clinic.model.Profesional;
 import javax.persistence.EntityManager;
@@ -18,6 +19,18 @@ privileged aspect HorarioDisponible_Roo_Finder {
         TypedQuery q = em.createQuery("SELECT COUNT(o) FROM HorarioDisponible AS o WHERE o.consultorio = :consultorio AND o.profesional = :profesional", Long.class);
         q.setParameter("consultorio", consultorio);
         q.setParameter("profesional", profesional);
+        return ((Long) q.getSingleResult());
+    }
+    
+    public static Long HorarioDisponible.countFindHorarioDisponiblesByConsultorioAndProfesionalAndDia(Consultorio consultorio, Profesional profesional, Dia dia) {
+        if (consultorio == null) throw new IllegalArgumentException("The consultorio argument is required");
+        if (profesional == null) throw new IllegalArgumentException("The profesional argument is required");
+        if (dia == null) throw new IllegalArgumentException("The dia argument is required");
+        EntityManager em = HorarioDisponible.entityManager();
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM HorarioDisponible AS o WHERE o.consultorio = :consultorio AND o.profesional = :profesional AND o.dia = :dia", Long.class);
+        q.setParameter("consultorio", consultorio);
+        q.setParameter("profesional", profesional);
+        q.setParameter("dia", dia);
         return ((Long) q.getSingleResult());
     }
     
@@ -45,6 +58,37 @@ privileged aspect HorarioDisponible_Roo_Finder {
         TypedQuery<HorarioDisponible> q = em.createQuery(jpaQuery, HorarioDisponible.class);
         q.setParameter("consultorio", consultorio);
         q.setParameter("profesional", profesional);
+        return q;
+    }
+    
+    public static TypedQuery<HorarioDisponible> HorarioDisponible.findHorarioDisponiblesByConsultorioAndProfesionalAndDia(Consultorio consultorio, Profesional profesional, Dia dia) {
+        if (consultorio == null) throw new IllegalArgumentException("The consultorio argument is required");
+        if (profesional == null) throw new IllegalArgumentException("The profesional argument is required");
+        if (dia == null) throw new IllegalArgumentException("The dia argument is required");
+        EntityManager em = HorarioDisponible.entityManager();
+        TypedQuery<HorarioDisponible> q = em.createQuery("SELECT o FROM HorarioDisponible AS o WHERE o.consultorio = :consultorio AND o.profesional = :profesional AND o.dia = :dia", HorarioDisponible.class);
+        q.setParameter("consultorio", consultorio);
+        q.setParameter("profesional", profesional);
+        q.setParameter("dia", dia);
+        return q;
+    }
+    
+    public static TypedQuery<HorarioDisponible> HorarioDisponible.findHorarioDisponiblesByConsultorioAndProfesionalAndDia(Consultorio consultorio, Profesional profesional, Dia dia, String sortFieldName, String sortOrder) {
+        if (consultorio == null) throw new IllegalArgumentException("The consultorio argument is required");
+        if (profesional == null) throw new IllegalArgumentException("The profesional argument is required");
+        if (dia == null) throw new IllegalArgumentException("The dia argument is required");
+        EntityManager em = HorarioDisponible.entityManager();
+        String jpaQuery = "SELECT o FROM HorarioDisponible AS o WHERE o.consultorio = :consultorio AND o.profesional = :profesional AND o.dia = :dia";
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                jpaQuery = jpaQuery + " " + sortOrder;
+            }
+        }
+        TypedQuery<HorarioDisponible> q = em.createQuery(jpaQuery, HorarioDisponible.class);
+        q.setParameter("consultorio", consultorio);
+        q.setParameter("profesional", profesional);
+        q.setParameter("dia", dia);
         return q;
     }
     

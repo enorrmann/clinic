@@ -379,3 +379,5 @@ fieldset th {
 
 #myCalendar .dijitCalendarDateTemplate { width: 30px; border: 1px solid #ccc; vertical-align: top }
 #myCalendar .dijitCalendarMonthLabel { font-size: 1.5em }
+
+.red { color: red !important; }

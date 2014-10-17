@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,7 +39,7 @@ public class HomeController {
 	@RequestMapping(value="/process")
 	public String processForm(@ModelAttribute Parametros params) {
 //		ModelAndView modelAndView = new ModelAndView("index");
-		return "redirect:/";
+		   return "redirect:/turnoes";
 	}
 	
 	@RequestMapping( method=RequestMethod.GET)
@@ -63,5 +65,11 @@ public class HomeController {
 	private void setSessionAttribute(HttpServletRequest request, String attribute,Object value){
 		request.getSession().setAttribute(attribute,value);
 	}
+    
+	@RequestMapping(params = "selectDate", produces = "text/html")
+    public String selectDate(Model uiModel,@RequestParam(value = "selectDate", required = true) String selectDate) {
+		parametros.setFecha(selectDate);
+        return "redirect:/turnoes";
+    }
 
 }

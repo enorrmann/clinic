@@ -4,6 +4,7 @@
 package ar.com.norrmann.clinic.web;
 
 import ar.com.norrmann.clinic.model.Consultorio;
+import ar.com.norrmann.clinic.model.Dia;
 import ar.com.norrmann.clinic.model.HorarioDisponible;
 import ar.com.norrmann.clinic.model.Profesional;
 import ar.com.norrmann.clinic.web.HorarioDisponibleController;
@@ -31,6 +32,28 @@ privileged aspect HorarioDisponibleController_Roo_Controller_Finder {
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
             uiModel.addAttribute("horariodisponibles", HorarioDisponible.findHorarioDisponiblesByConsultorioAndProfesional(consultorio, profesional, sortFieldName, sortOrder).getResultList());
+        }
+        return "horariodisponibles/list";
+    }
+    
+    @RequestMapping(params = { "find=ByConsultorioAndProfesionalAndDia", "form" }, method = RequestMethod.GET)
+    public String HorarioDisponibleController.findHorarioDisponiblesByConsultorioAndProfesionalAndDiaForm(Model uiModel) {
+        uiModel.addAttribute("consultorios", Consultorio.findAllConsultorios());
+        uiModel.addAttribute("profesionals", Profesional.findAllProfesionals());
+        uiModel.addAttribute("dias", Dia.findAllDias());
+        return "horariodisponibles/findHorarioDisponiblesByConsultorioAndProfesionalAndDia";
+    }
+    
+    @RequestMapping(params = "find=ByConsultorioAndProfesionalAndDia", method = RequestMethod.GET)
+    public String HorarioDisponibleController.findHorarioDisponiblesByConsultorioAndProfesionalAndDia(@RequestParam("consultorio") Consultorio consultorio, @RequestParam("profesional") Profesional profesional, @RequestParam("dia") Dia dia, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+        if (page != null || size != null) {
+            int sizeNo = size == null ? 10 : size.intValue();
+            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+            uiModel.addAttribute("horariodisponibles", HorarioDisponible.findHorarioDisponiblesByConsultorioAndProfesionalAndDia(consultorio, profesional, dia, sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
+            float nrOfPages = (float) HorarioDisponible.countFindHorarioDisponiblesByConsultorioAndProfesionalAndDia(consultorio, profesional, dia) / sizeNo;
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+        } else {
+            uiModel.addAttribute("horariodisponibles", HorarioDisponible.findHorarioDisponiblesByConsultorioAndProfesionalAndDia(consultorio, profesional, dia, sortFieldName, sortOrder).getResultList());
         }
         return "horariodisponibles/list";
     }

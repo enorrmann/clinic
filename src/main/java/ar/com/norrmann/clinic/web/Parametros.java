@@ -23,7 +23,7 @@ public class Parametros implements Serializable {
 	private SimpleDateFormat formatoDeFecha = new SimpleDateFormat("MM/d/yyyy");
 	private Profesional profesionalSeleccionado;
 	private Consultorio consultorioSeleccionado;
-	private Date fecha = new Date();
+	private Date fechaSeleccionada = new Date();
 	private List<Long> diasAtiende = new ArrayList<Long>();
 
 	public Profesional getProfesionalSeleccionado() {
@@ -42,30 +42,30 @@ public class Parametros implements Serializable {
 		this.consultorioSeleccionado = consultorioSeleccionado;
 	}
 
-	public Date getFecha() {
-		return fecha;
+	public Date getFechaSeleccionada() {
+		return fechaSeleccionada;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setFechaSeleccionada(Date fechaSeleccionada) {
+		this.fechaSeleccionada = fechaSeleccionada;
 	}
 
-	public void setFecha(String selectDate) {
+	public void setFechaSeleccionada(String selectDate) {
 		try {
 			Date fecha = formatoDeFecha.parse(selectDate);
-			setFecha(fecha);
+			setFechaSeleccionada(fecha);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public String getFechaString(){
-		return formatoDeFecha.format(fecha);
+		return formatoDeFecha.format(fechaSeleccionada);
 	}
 	
 	public int getDayNumber(){
 		Calendar c = Calendar.getInstance();
-		c.setTime(fecha);
+		c.setTime(fechaSeleccionada);
 		return c.get(Calendar.DAY_OF_WEEK);
 	}
 

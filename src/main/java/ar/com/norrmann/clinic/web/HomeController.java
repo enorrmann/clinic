@@ -81,7 +81,7 @@ public class HomeController {
     
 	@RequestMapping(params = "selectDate", produces = "text/html")
     public String selectDate(Model uiModel,@RequestParam(value = "selectDate", required = true) String selectDate) {
-		parametros.setFecha(selectDate);
+		parametros.setFechaSeleccionada(selectDate);
         return "redirect:/turnoes";
     }
 

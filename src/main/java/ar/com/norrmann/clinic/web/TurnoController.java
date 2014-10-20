@@ -32,7 +32,7 @@ public class TurnoController {
     @RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel,@ModelAttribute Parametros parametros) {
     	Turno turno = new Turno();
-    	turno.setFecha(parametros.getFecha());
+    	turno.setFecha(parametros.getFechaSeleccionada());
     	uiModel.addAttribute("pacientes", Paciente.findAllPacientes());
         uiModel.addAttribute("turno", turno);
         addDateTimeFormatPatterns(uiModel);
@@ -50,6 +50,7 @@ public class TurnoController {
         Profesional profesional = Profesional.findProfesional(parametros.getProfesionalSeleccionado().getId());
         turno.setConsultorio(consultorio);
         turno.setProfesional(profesional);
+        turno.setFecha(parametros.getFechaSeleccionada());
 
         turno.persist();
         return "redirect:/turnoes/" + encodeUrlPathSegment(turno.getId().toString(), httpServletRequest);
@@ -63,7 +64,7 @@ public class TurnoController {
 
         Consultorio consultorio = Consultorio.findConsultorio(parametros.getConsultorioSeleccionado().getId());
         Profesional profesional = Profesional.findProfesional(parametros.getProfesionalSeleccionado().getId());
-        Date fecha = parametros.getFecha();
+        Date fecha = parametros.getFechaSeleccionada();
         turnos = Turno.findTurnoesByConsultorioAndProfesionalAndFecha(consultorio,profesional,fecha,sortFieldName,"ASC").getResultList();
         uiModel.addAttribute("turnoes", turnos);
         Dia dia = Dia.findDia(new Long(parametros.getDayNumber()));

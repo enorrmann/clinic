@@ -9,7 +9,7 @@
 <div><label>Profesional:</label></div>
 <div class="box">${parametros.profesionalSeleccionado.nombreLargo}</div><br/>
 </div>
-        <field:datetime dateTimePattern="${turno_fecha_date_format}" field="fecha" id="c_ar_com_norrmann_clinic_model_Turno_fecha" z="W9Qxy8fHkNYQX3pWJMecuN5wAAA="/>
+        <field:datetime disabled="true" dateTimePattern="${turno_fecha_date_format}" field="fecha" id="c_ar_com_norrmann_clinic_model_Turno_fecha" z="W9Qxy8fHkNYQX3pWJMecuN5wAAA="/>
         <field:input field="hora" id="c_ar_com_norrmann_clinic_model_Turno_hora" z="s2xWLDDIQc5i7yLLMlQ5m1Dl0wg="/>
         <field:select field="paciente" id="c_ar_com_norrmann_clinic_model_Turno_paciente" itemValue="id" items="${pacientes}" path="/pacientes" z="v/JRO6WsN96hsUF24j54Ojctuf0="/>
     </form:create>

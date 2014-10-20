@@ -16,7 +16,7 @@ public class Turno {
 
     /**
      */
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @DateTimeFormat(style = "M-")
     private Date fecha;
 

@@ -10,11 +10,9 @@ import ar.com.norrmann.clinic.model.Turno;
 import ar.com.norrmann.clinic.web.TurnoController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,17 +28,6 @@ privileged aspect TurnoController_Roo_Controller {
         uiModel.addAttribute("turno", Turno.findTurno(id));
         uiModel.addAttribute("itemId", id);
         return "turnoes/show";
-    }
-    
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String TurnoController.update(@Valid Turno turno, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, turno);
-            return "turnoes/update";
-        }
-        uiModel.asMap().clear();
-        turno.merge();
-        return "redirect:/turnoes/" + encodeUrlPathSegment(turno.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")

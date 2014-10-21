@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,20 @@ import ar.com.norrmann.clinic.model.Turno;
 @SessionAttributes({ "parametros" })
 public class TurnoController {
 	
-    @RequestMapping(params = "form", produces = "text/html")
+    
+	@RequestMapping("/horarioDisponible/{id}")
+	public String asignarHorarioDisponible(@PathVariable("id") Long id, Model uiModel,@ModelAttribute Parametros parametros) {
+    	Turno turno = new Turno();
+    	HorarioDisponible hd = HorarioDisponible.findHorarioDisponible(id);
+    	turno.setHora(hd.getHora());
+    	turno.setFecha(parametros.getFechaSeleccionada());
+    	uiModel.addAttribute("pacientes", Paciente.findAllPacientes());
+        uiModel.addAttribute("turno", turno);
+        addDateTimeFormatPatterns(uiModel);
+		return "turnoes/create";
+	}
+	
+	@RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel,@ModelAttribute Parametros parametros) {
     	Turno turno = new Turno();
     	turno.setFecha(parametros.getFechaSeleccionada());
@@ -53,7 +67,8 @@ public class TurnoController {
         turno.setFecha(parametros.getFechaSeleccionada());
 
         turno.persist();
-        return "redirect:/turnoes/" + encodeUrlPathSegment(turno.getId().toString(), httpServletRequest);
+        //return "redirect:/turnoes/" + encodeUrlPathSegment(turno.getId().toString(), httpServletRequest);
+        return "redirect:/turnoes";
     }
     
 	@RequestMapping(produces = "text/html")
@@ -77,6 +92,23 @@ public class TurnoController {
         return "turnoes/list";
     }
     
+	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
+    public String update(@ModelAttribute Parametros parametros,@Valid Turno turno, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        if (bindingResult.hasErrors()) {
+            populateEditForm(uiModel, turno);
+            return "turnoes/update";
+        }
+        uiModel.asMap().clear();
+        
+        Consultorio consultorio = Consultorio.findConsultorio(parametros.getConsultorioSeleccionado().getId());
+        Profesional profesional = Profesional.findProfesional(parametros.getProfesionalSeleccionado().getId());
+        turno.setConsultorio(consultorio);
+        turno.setProfesional(profesional);
+        turno.setFecha(parametros.getFechaSeleccionada());
+
+        turno.merge();
+        return "redirect:/turnoes";
+    }    
     private void removeAssigned(List<Turno> turnos,List<HorarioDisponible> horariosDisponibles){
     	if (turnos==null || horariosDisponibles==null){
     		return ;

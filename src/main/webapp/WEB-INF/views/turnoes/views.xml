@@ -11,6 +11,6 @@
         <put-attribute name="body" value="/WEB-INF/views/turnoes/custom/create.jspx"/>
     </definition>
 <definition extends="default" name="turnoes/update">
-        <put-attribute name="body" value="/WEB-INF/views/turnoes/update.jspx"/>
+        <put-attribute name="body" value="/WEB-INF/views/turnoes/custom/update.jspx"/>
     </definition>
 </tiles-definitions>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ar_com_norrmann_clinic_model_Turno" modelAttribute="turno" path="/turnoes" versionField="Version" z="zJ5ReVZCU7fuRLlqd6LLoZXULqE=">
+<div>
+<div><label>Consultorio:</label></div>
+<div class="box">${parametros.consultorioSeleccionado.nombre}</div><br/>
+<div><label>Profesional:</label></div>
+<div class="box">${parametros.profesionalSeleccionado.nombreLargo}</div><br/>
+</div>
+        <field:datetime disabled="true" dateTimePattern="${turno_fecha_date_format}" field="fecha" id="c_ar_com_norrmann_clinic_model_Turno_fecha" z="W9Qxy8fHkNYQX3pWJMecuN5wAAA="/>
+        <field:input field="hora" id="c_ar_com_norrmann_clinic_model_Turno_hora" z="s2xWLDDIQc5i7yLLMlQ5m1Dl0wg="/>
+        <field:select field="paciente" id="c_ar_com_norrmann_clinic_model_Turno_paciente" itemValue="id" items="${pacientes}" path="/pacientes" z="v/JRO6WsN96hsUF24j54Ojctuf0="/>
+    </form:update>
+</div>

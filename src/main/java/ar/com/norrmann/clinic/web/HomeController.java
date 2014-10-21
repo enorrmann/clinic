@@ -56,7 +56,7 @@ public class HomeController {
 	
 	@RequestMapping( method=RequestMethod.GET)
 	public ModelAndView doGet(HttpServletRequest request){
-		ModelAndView modelAndView = new ModelAndView("index");
+		ModelAndView modelAndView = new ModelAndView("turnoes/list");
 		if (!isSet(request,"profesionalAll")){
 			List<Profesional> profesionales = Profesional.findAllProfesionals();
 			parametros.setProfesionalSeleccionado(profesionales.get(0));
